@@ -76,9 +76,7 @@ install -m 0755 -vp %{gobuilddir}/bin/* %{buildroot}%{_bindir}/
 
 %files
 %license COPYING LICENSE
-%doc DEVELOPER.md CONTRIBUTORS README.md deployment/supported-bundle-distros.txt
-%doc deployment/supported-packages-distros.txt .gitlab/issue_templates/Story.md
-%doc doc
+%doc DEVELOPER.md CONTRIBUTORS README.md 
 %{_bindir}/*
 
 %gopkgfiles
