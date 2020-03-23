@@ -2,6 +2,7 @@ build:
   stage: build
   image: rbonifaz/wahay-rpm-build:latest
   before_script:
+    - dnf install golang-github-sirupsen-logrus-devel
     - "eval $(ssh-agent -s)"
     - 'ssh-add <(echo "$FEDORA_PACKAGING_PRIVATE_KEY")'
     - mkdir -p ~/.ssh; chmod 700 ~/.ssh
