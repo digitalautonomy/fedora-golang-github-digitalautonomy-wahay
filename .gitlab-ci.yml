@@ -1,0 +1,33 @@
+build:
+  stage: build
+  image: rbonifaz/wahay-rpm-build:latest
+  before_script:
+    - "eval $(ssh-agent -s)"
+    - 'ssh-add <(echo "$FEDORA_PACKAGING_PRIVATE_KEY")'
+    - mkdir -p ~/.ssh; chmod 700 ~/.ssh
+    - 'echo -e "[fedora.autonomia.digital]:4242,[185.108.78.22]:4242 ecdsa-sha2-nistp256 AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBIx8qF3puSAM1UAxc3ODJTNGrgwf8mET664pPfP/ZQgiMxTIKG8Ar8h1xxP52AyQoqTLpCWOPaBkUya2Q0+SZTg=
+" > ~/.ssh/known_hosts'
+    - chmod 644 ~/.ssh/known_hosts
+    - 'scp -r -P4242  fedora-repo@fedora.autonomia.digital:packages/upload/f31/golang*devel*.rpm .'
+    - rpm -ivh golang*devel*.rpm
+
+  script:
+    - git clone https://github.com/digitalautonomy/wahay.git
+    - cd wahay
+    - git checkout 4abfed1038dca7b0553ae04ff69ebb804d939e74
+    - cd ..
+    - mv wahay/ wahay-4abfed1038dca7b0553ae04ff69ebb804d939e74
+    - tar zcf wahay-4abfed1038dca7b0553ae04ff69ebb804d939e74.tar.gz wahay-4abfed1038dca7b0553ae04ff69ebb804d939e74 
+    - mkdir f30 f31
+    - fedpkg --release f30 local
+    - 'find . -name "*fc30*.rpm" -exec mv {} f30 \;'
+    - fedpkg --release f31 local
+    - 'find . -name "*fc31*.rpm" -exec mv {} f31 \;'
+    - 'scp -r -P4242 f30/* fedora-repo@fedora.autonomia.digital:packages/upload/f30'
+    - 'scp -r -P4242 f31/* fedora-repo@fedora.autonomia.digital:packages/upload/f31'
+
+
+  artifacts:
+    paths:
+      - 'f30/*.rpm'
+      - 'f31/*.rpm'
