@@ -8,7 +8,7 @@
 %gometa
 
 %global common_description %{expand:
-An easy-to-use, secure and decentralized conference call application
+An easy-to-use, secure and decentralized conference call application}
 
 %global golicenses      COPYING LICENSE
 %global godocs          DEVELOPER.md CONTRIBUTORS README.md\\\
