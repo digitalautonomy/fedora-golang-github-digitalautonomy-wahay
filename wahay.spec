@@ -8,18 +8,14 @@
 %gometa
 
 %global common_description %{expand:
-An easy-to-use, secure and decentralized conference call application (this
-repository is a mirror of an internal work repository).}
+An easy-to-use, secure and decentralized conference call application
 
 %global golicenses      COPYING LICENSE
 %global godocs          DEVELOPER.md CONTRIBUTORS README.md\\\
-                        deployment/supported-bundle-distros.txt\\\
-                        deployment/supported-packages-distros.txt\\\
-                        .gitlab/issue_templates/Story.md doc
 
-Name:           %{goname}
+Name:           wahay
 Version:        0
-Release:        0.1%{?dist}
+Release:        0.2%{?dist}
 Summary:        An easy-to-use, secure and decentralized conference call application (this repository is a mirror of an internal work repository)
 
 License:        GPL-3.0-only
@@ -101,6 +97,6 @@ done
 %gopkgfiles
 
 %changelog
+* Tue Mar 24 13:19:24 -05 2020 rafael <rafael@autonomia.digital> - 0-0.2.20200318git4abfed1
 * Mon Mar 18 13:19:24 -05 2020 rafael <rafael@autonomia.digital> - 0-0.1.20200318git4abfed1
 - Initial package
-

@@ -21,9 +21,9 @@ build:
     - tar zcf wahay-4abfed1038dca7b0553ae04ff69ebb804d939e74.tar.gz wahay-4abfed1038dca7b0553ae04ff69ebb804d939e74 
     - mkdir f30 f31
     - fedpkg --release f30 local
-    - 'find . -name "*wahay*fc30*.rpm" -exec mv {} f30 \;'
+    - 'find . -name "wahay*fc30*.rpm" -exec mv {} f30 \;'
     - fedpkg --release f31 local
-    - 'find . -name "*wahay*fc31*.rpm" -exec mv {} f31 \;'
+    - 'find . -name "wahay*fc31*.rpm" -exec mv {} f31 \;'
     - 'scp -r -P4242 f30/* fedora-repo@fedora.autonomia.digital:packages/upload/f30'
     - 'scp -r -P4242 f31/* fedora-repo@fedora.autonomia.digital:packages/upload/f31'
 
