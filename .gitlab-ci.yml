@@ -7,7 +7,7 @@ build:
     - 'ssh-add <(echo "$FEDORA_PACKAGING_PRIVATE_KEY")'
     - mkdir -p ~/.ssh; chmod 700 ~/.ssh
     - 'echo -e "[fedora.autonomia.digital]:4243,[185.108.78.22]:4243 ecdsa-sha2-nistp256 AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBFE8IPu1LfB0ePyhgBFTyzXRNBZUiYa1ZaSnkFb746r3MgZQlfMhfxdMtrY3bKoiQ4i+HEUTCUN4BJ5n2PMdGz4=" > ~/.ssh/known_hosts'    
-- chmod 644 ~/.ssh/known_hosts
+    - chmod 644 ~/.ssh/known_hosts
     - 'scp -r -P4243  fedora-repo@fedora.autonomia.digital:packages/upload/f31/golang*devel*.rpm .'
     - rpm -ivh golang*devel*.rpm
 
@@ -25,7 +25,6 @@ build:
     - 'find . -name "wahay*fc31*.rpm" -exec mv {} f31 \;'
     - 'scp -r -P4243 f30/* fedora-repo@fedora.autonomia.digital:packages/upload/f30'
     - 'scp -r -P4243 f31/* fedora-repo@fedora.autonomia.digital:packages/upload/f31'
-
 
   artifacts:
     paths:
