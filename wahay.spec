@@ -3,7 +3,7 @@
 
 # https://github.com/digitalautonomy/wahay
 %global goipath         github.com/digitalautonomy/wahay
-%global commit          4abfed1038dca7b0553ae04ff69ebb804d939e74
+%global commit          3906ea63d21872d25893e247322f0ee34d00a499
 
 %gometa
 
@@ -15,7 +15,7 @@ An easy-to-use, secure and decentralized conference call application}
 
 Name:           wahay
 Version:        0
-Release:        0.2%{?dist}
+Release:        0.3%{?dist}
 Summary:        An easy-to-use, secure and decentralized conference call application (this repository is a mirror of an internal work repository)
 
 License:        GPL-3.0-only
@@ -97,6 +97,8 @@ done
 %gopkgfiles
 
 %changelog
+* Mon Mar 30 14:48:00 -05 2020 rafael <rafael@autonomia.digital> - 0.0.3.20200331git3906ea6
+- Upgrade to commit 3906ea63d21872d25893e247322f0ee34d00a499
 * Tue Mar 24 13:19:24 -05 2020 rafael <rafael@autonomia.digital> - 0-0.2.20200318git4abfed1
 * Mon Mar 18 13:19:24 -05 2020 rafael <rafael@autonomia.digital> - 0-0.1.20200318git4abfed1
 - Initial package

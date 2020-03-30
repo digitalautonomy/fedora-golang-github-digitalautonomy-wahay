@@ -3,10 +3,10 @@ Spec files uploaded to Fedora's repo auto download the source code. I would fix 
 
 ```
 git clone https://github.com/digitalautonomy/wahay.git
-mv wahay/ wahay-4abfed1038dca7b0553ae04ff69ebb804d939e74
+mv wahay/ wahay-3906ea63d21872d25893e247322f0ee34d00a499
 mv grumble/ grumble-c109af8d88b4b9cb77afe1f18572c66027cf8c0b
-tar zcf wahay-4abfed1038dca7b0553ae04ff69ebb804d939e74.tar.gz wahay-4abfed1038dca7b0553ae04ff69ebb804d939e74
-rm -rf wahay-4abfed1038dca7b0553ae04ff69ebb804d939e74
+tar zcf wahay-3906ea63d21872d25893e247322f0ee34d00a499.tar.gz wahay-3906ea63d21872d25893e247322f0ee34d00a499
+rm -rf wahay-3906ea63d21872d25893e247322f0ee34d00a499
 ```
 
 To build this package you would need to install the following packages from the Fedora repos:
