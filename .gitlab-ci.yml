@@ -9,7 +9,7 @@ build:
     - 'echo -e "[fedora.autonomia.digital]:4243,[185.108.78.22]:4243 ecdsa-sha2-nistp256 AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBFE8IPu1LfB0ePyhgBFTyzXRNBZUiYa1ZaSnkFb746r3MgZQlfMhfxdMtrY3bKoiQ4i+HEUTCUN4BJ5n2PMdGz4=" > ~/.ssh/known_hosts'    
     - chmod 644 ~/.ssh/known_hosts
     - 'scp -r -P4243  fedora-repo@fedora.autonomia.digital:packages/upload/f31/golang*devel*.rpm .'
-    - rpm -ivh golang*devel*.rpm
+    - rpm -Uvh golang*devel*.rpm
 
   script:
     - git clone https://github.com/digitalautonomy/wahay.git
