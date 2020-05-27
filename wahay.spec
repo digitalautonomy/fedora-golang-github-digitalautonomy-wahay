@@ -3,7 +3,7 @@
 
 # https://github.com/digitalautonomy/wahay
 %global goipath         github.com/digitalautonomy/wahay
-%global commit          971d012c63c4c1220e8e082a63f02ec0e16c382a
+%global commit          ff0495ef8d538a9ce53f9bf889b8d0077c2c9204
 
 %gometa
 
@@ -15,7 +15,7 @@ An easy-to-use, secure and decentralized conference call application}
 
 Name:           wahay
 Version:        0
-Release:        0.4%{?dist}
+Release:        0.5%{?dist}
 Summary:        An easy-to-use, secure and decentralized conference call application (this repository is a mirror of an internal work repository)
 
 License:        GPL-3.0-only
@@ -97,6 +97,8 @@ done
 %gopkgfiles
 
 %changelog
+* Wed May 27 11:00:00 -05 2020 rafael <rafael@autonomia.digital> - 0.0.5.20200527gitff0495e
+- Upgrade to commit ff0495ef8d538a9ce53f9bf889b8d0077c2c9204
 * Mon Mar 30 14:48:00 -05 2020 rafael <rafael@autonomia.digital> - 0.0.4.20200331git971d012
 - Upgrade to commit 971d012c63c4c1220e8e082a63f02ec0e16c382a
 - Add gtk3 as a dependency
