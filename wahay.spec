@@ -3,7 +3,7 @@
 
 # https://github.com/digitalautonomy/wahay
 %global goipath         github.com/digitalautonomy/wahay
-%global commit          ff0495ef8d538a9ce53f9bf889b8d0077c2c9204
+%global commit         8ef10bbed3f77e02cd1724395d63432eb6d04682 
 
 %gometa
 
@@ -97,6 +97,11 @@ done
 %gopkgfiles
 
 %changelog
+* Wed Jul 8 14:00 -05 2020 rafael <rafael@autonomia.digital> - 0.0.6.20200708git8ef10bbe
+- Upgrade to commit 8ef10bbed3f77e02cd1724395d63432eb6d04682
+- Support for group chat
+- Hosting user can be Mumble Superuser, that way it is possible to mute, ban users or other admin tasks
+- Fix other bugs
 * Wed May 27 11:00:00 -05 2020 rafael <rafael@autonomia.digital> - 0.0.5.20200527gitff0495e
 - Upgrade to commit ff0495ef8d538a9ce53f9bf889b8d0077c2c9204
 * Mon Mar 30 14:48:00 -05 2020 rafael <rafael@autonomia.digital> - 0.0.4.20200331git971d012

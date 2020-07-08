@@ -14,10 +14,10 @@ build:
   script:
     - git clone https://github.com/digitalautonomy/wahay.git
     - cd wahay
-    - git checkout ff0495ef8d538a9ce53f9bf889b8d0077c2c9204
+    - git checkout 8ef10bbed3f77e02cd1724395d63432eb6d04682
     - cd ..
-    - mv wahay/ wahay-ff0495ef8d538a9ce53f9bf889b8d0077c2c9204
-    - tar zcf wahay-ff0495ef8d538a9ce53f9bf889b8d0077c2c9204.tar.gz wahay-ff0495ef8d538a9ce53f9bf889b8d0077c2c9204
+    - mv wahay/ wahay-8ef10bbed3f77e02cd1724395d63432eb6d04682
+    - tar zcf wahay-8ef10bbed3f77e02cd1724395d63432eb6d04682.tar.gz wahay-8ef10bbed3f77e02cd1724395d63432eb6d04682
     - mkdir f30 f31
     - fedpkg --release f30 local
     - 'find . -name "wahay*fc30*.rpm" -exec mv {} f30 \;'
