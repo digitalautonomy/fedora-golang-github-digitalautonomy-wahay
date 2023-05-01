@@ -3,7 +3,7 @@
 
 # https://github.com/digitalautonomy/wahay
 %global goipath         github.com/digitalautonomy/wahay
-%global commit         8ef10bbed3f77e02cd1724395d63432eb6d04682 
+%global commit          87d0bcf5ea8b75df9f723ce0a8cf39ef45fd65e9
 
 %gometa
 
@@ -11,11 +11,11 @@
 An easy-to-use, secure and decentralized conference call application}
 
 %global golicenses      COPYING LICENSE
-%global godocs          DEVELOPER.md CONTRIBUTORS README.md\\\
+%global godocs          DEVELOPER.md CONTRIBUTORS README.md
 
 Name:           wahay
 Version:        0
-Release:        0.5%{?dist}
+Release:        0.7%{?dist}
 Summary:        An easy-to-use, secure and decentralized conference call application (this repository is a mirror of an internal work repository)
 
 License:        GPL-3.0-only
@@ -33,6 +33,7 @@ BuildRequires:  golang(github.com/coyim/gotk3adapter/gliba)
 BuildRequires:  golang(github.com/coyim/gotk3adapter/glibi)
 BuildRequires:  golang(github.com/coyim/gotk3adapter/gtka)
 BuildRequires:  golang(github.com/coyim/gotk3adapter/gtki)
+BuildRequires:  golang(github.com/coyim/gotk3extra)
 BuildRequires:  golang(github.com/cubiest/jibberjabber)
 BuildRequires:  golang(github.com/digitalautonomy/grumble/pkg/logtarget)
 BuildRequires:  golang(github.com/digitalautonomy/grumble/server)
@@ -50,6 +51,7 @@ BuildRequires:  golang(golang.org/x/text/message/catalog)
 BuildRequires:  golang(github.com/coyim/gotk3adapter/glib_mock)
 BuildRequires:  golang(github.com/coyim/gotk3adapter/gtk_mock)
 BuildRequires:  golang(gopkg.in/check.v1)
+BuildRequires:  golang(github.com/prashantv/gostub)
 %endif
 
 %description
@@ -61,6 +63,7 @@ BuildRequires:  golang(gopkg.in/check.v1)
 %goprep
 
 %build
+export GOFLAGS="-tags=gtk_3_18,glib_2_66"
 %gobuild -o %{gobuilddir}/bin/wahay %{goipath}
 
 %install
@@ -83,6 +86,9 @@ done
 
 %if %{with check}
 %check
+Xvfb :99 &
+export DISPLAY=:99
+export GOFLAGS="-tags=gtk_3_18,glib_2_66"
 %gocheck
 %endif
 
@@ -97,6 +103,8 @@ done
 %gopkgfiles
 
 %changelog
+* Mon May 1 06:00:00 -05 2023 CAD <fedora@autonomia.digital> - 0-0.7.20230430git87d0bcf
+- Upgrade versions, upgrade golang version, move to modules and build for more Fedora versions
 * Wed Jul 8 14:00 -05 2020 rafael <rafael@autonomia.digital> - 0.0.6.20200708git8ef10bbe
 - Upgrade to commit 8ef10bbed3f77e02cd1724395d63432eb6d04682
 - Support for group chat

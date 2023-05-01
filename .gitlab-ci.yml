@@ -2,31 +2,18 @@ build:
   stage: build
   image: rbonifaz/wahay-rpm-build:latest
   before_script:
-    - dnf install -y golang-github-sirupsen-logrus-devel
+    - dnf install -y golang-github-sirupsen-logrus-devel golang-github-stretchr-testify-devel
     - "eval $(ssh-agent -s)"
     - 'ssh-add <(echo "$FEDORA_PACKAGING_PRIVATE_KEY")'
     - mkdir -p ~/.ssh; chmod 700 ~/.ssh
     - 'echo -e "[fedora.autonomia.digital]:4243,[185.108.78.22]:4243 ecdsa-sha2-nistp256 AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBFE8IPu1LfB0ePyhgBFTyzXRNBZUiYa1ZaSnkFb746r3MgZQlfMhfxdMtrY3bKoiQ4i+HEUTCUN4BJ5n2PMdGz4=" > ~/.ssh/known_hosts'    
     - chmod 644 ~/.ssh/known_hosts
-    - 'scp -r -P4243  fedora-repo@fedora.autonomia.digital:packages/upload/f31/golang*devel*.rpm .'
+    - 'scp -r -P4243  fedora-repo@fedora.autonomia.digital:packages/upload/f38/golang*devel*.rpm .'
     - rpm -Uvh golang*devel*.rpm
 
   script:
-    - git clone https://github.com/digitalautonomy/wahay.git
-    - cd wahay
-    - git checkout 8ef10bbed3f77e02cd1724395d63432eb6d04682
+    - git clone https://github.com/digitalautonomy/wahay.git wahay-87d0bcf5ea8b75df9f723ce0a8cf39ef45fd65e9
+    - cd wahay-87d0bcf5ea8b75df9f723ce0a8cf39ef45fd659e
+    - git checkout 87d0bcf5ea8b75df9f723ce0a8cf39ef45fd65e9
     - cd ..
-    - mv wahay/ wahay-8ef10bbed3f77e02cd1724395d63432eb6d04682
-    - tar zcf wahay-8ef10bbed3f77e02cd1724395d63432eb6d04682.tar.gz wahay-8ef10bbed3f77e02cd1724395d63432eb6d04682
-    - mkdir f30 f31
-    - fedpkg --release f30 local
-    - 'find . -name "wahay*fc30*.rpm" -exec mv {} f30 \;'
-    - fedpkg --release f31 local
-    - 'find . -name "wahay*fc31*.rpm" -exec mv {} f31 \;'
-    - 'scp -r -P4243 f30/* fedora-repo@fedora.autonomia.digital:packages/upload/f30'
-    - 'scp -r -P4243 f31/* fedora-repo@fedora.autonomia.digital:packages/upload/f31'
-
-  artifacts:
-    paths:
-      - 'f30/*.rpm'
-      - 'f31/*.rpm'
+    - tar zcf wahay-87d0bcf5ea8b75df9f723ce0a8cf39ef45fd65e9.tar.gz wahay-87d0bcf5ea8b75df9f723ce0a8cf39ef45fd65e9
