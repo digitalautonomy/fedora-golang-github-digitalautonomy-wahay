@@ -63,7 +63,7 @@ BuildRequires:  golang(github.com/prashantv/gostub)
 %goprep
 
 %build
-export GOFLAGS="-tags=gtk_3_18,glib_2_66"
+export GOFLAGS="-tags=gtk_3_18,glib_2_66,binary"
 %gobuild -o %{gobuilddir}/bin/wahay %{goipath}
 
 %install
