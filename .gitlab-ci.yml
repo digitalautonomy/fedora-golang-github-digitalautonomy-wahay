@@ -2,6 +2,7 @@ build:
   stage: build
   image: digitalautonomy/wahay:0.6-build-rpm
   before_script:
+    - echo 'ip_resolve=4' >> /etc/dnf/dnf.conf
     - dnf clean all
     - dnf install -y golang-github-sirupsen-logrus-devel golang-github-stretchr-testify-devel
     - "eval $(ssh-agent -s)"
