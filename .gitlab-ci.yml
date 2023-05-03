@@ -2,7 +2,7 @@ build:
   stage: build
   image: digitalautonomy/wahay:0.7-build-rpm
   before_script:
-    - dnf install -y golang-github-sirupsen-logrus-devel golang-github-stretchr-testify-devel golang-x-text-devel golang-github-protobuf-devel golang-github-gorilla-websocket-devel golang-x-crypto-devel golang-x-net-devel
+    - dnf install -y golang-github-sirupsen-logrus-devel golang-github-stretchr-testify-devel golang-x-text-devel golang-github-protobuf-devel golang-github-gorilla-websocket-devel golang-x-crypto-devel golang-x-net-devel golang-github-atotto-clipboard-devel golang-github-kardianos-osext-devel golang-gopkg-check-1-devel
     - "eval $(ssh-agent -s)"
     - 'ssh-add <(echo "$FEDORA_PACKAGING_PRIVATE_KEY")'
     - mkdir -p ~/.ssh; chmod 700 ~/.ssh
