@@ -87,8 +87,6 @@ done
 
 %if %{with check}
 %check
-Xvfb :99 &
-export DISPLAY=:99
 export GOFLAGS="-tags=gtk_3_18,glib_2_66"
 %gocheck
 %endif
