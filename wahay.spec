@@ -106,7 +106,7 @@ export GOFLAGS="-tags=gtk_3_18,glib_2_66"
 %changelog
 * Mon May 1 06:00:00 -05 2023 CAD <fedora@autonomia.digital> - 0-0.7.20230430git87d0bcf
 - Upgrade versions, upgrade golang version, move to modules and build for more Fedora versions
-* Wed Jul 8 14:00 -05 2020 rafael <rafael@autonomia.digital> - 0.0.6.20200708git8ef10bbe
+* Wed Jul 8 14:00:00 -05 2020 rafael <rafael@autonomia.digital> - 0.0.6.20200708git8ef10bbe
 - Upgrade to commit 8ef10bbed3f77e02cd1724395d63432eb6d04682
 - Support for group chat
 - Hosting user can be Mumble Superuser, that way it is possible to mute, ban users or other admin tasks
