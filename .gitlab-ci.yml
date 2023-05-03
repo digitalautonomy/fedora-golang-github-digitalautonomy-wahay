@@ -11,10 +11,14 @@ build:
     - 'scp -r -P4243  fedora-repo@fedora.autonomia.digital:packages/upload/f38/golang*devel*.rpm .'
     - rpm -Uvh golang*devel*.rpm
 
+  parallel:
+    matrix:
+      - fedora_release: ["f30", "f31", "f32", "f33", "f34", "f35", "f36", "f37", "f38"] 
+
   script:
     - git clone https://github.com/digitalautonomy/wahay.git wahay-87d0bcf5ea8b75df9f723ce0a8cf39ef45fd65e9
     - cd wahay-87d0bcf5ea8b75df9f723ce0a8cf39ef45fd65e9
     - git checkout 87d0bcf5ea8b75df9f723ce0a8cf39ef45fd65e9
     - cd ..
     - tar zcf wahay-87d0bcf5ea8b75df9f723ce0a8cf39ef45fd65e9.tar.gz wahay-87d0bcf5ea8b75df9f723ce0a8cf39ef45fd65e9
-    - ./build_all.sh f30 f31 f32 f33 f34 f35 f36 f37 f38
+    - ./build_all.sh $fedora_release
