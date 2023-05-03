@@ -64,6 +64,7 @@ BuildRequires:  golang(github.com/prashantv/gostub)
 
 %build
 export GOFLAGS="-tags=gtk_3_18,glib_2_66,binary"
+export BUILDTAGS="gtk_3_18 glib_2_66 binary"
 %gobuild -o %{gobuilddir}/bin/wahay %{goipath}
 
 %install
@@ -94,7 +95,7 @@ export GOFLAGS="-tags=gtk_3_18,glib_2_66"
 
 %files
 %license COPYING LICENSE
-%doc DEVELOPER.md CONTRIBUTORS README.md 
+%doc DEVELOPER.md CONTRIBUTORS README.md
 %{_mandir}/man1/wahay.*
 %{_bindir}/*
 %{_datadir}/applications/*.desktop
