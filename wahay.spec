@@ -70,8 +70,8 @@ export BUILDTAGS="gtk_3_18 glib_2_66 binary"
 install -m 0755 -vd                     %{buildroot}%{_bindir}
 install -m 0755 -vp %{gobuilddir}/bin/* %{buildroot}%{_bindir}/
 
-#install -d %{buildroot}/%{_mandir}/man1/
-#install -p packaging/ubuntu/ubuntu/usr/share/man/man1/wahay.1.gz %{buildroot}/%{_mandir}/man1/
+install -d %{buildroot}/%{_mandir}/man1/
+install -p packaging/ubuntu/ubuntu/usr/share/man/man1/wahay.1.gz %{buildroot}/%{_mandir}/man1/
 
 sed "s/__NAME__/Wahay/g" gui/config_files/wahay.desktop | sed "s/__EXEC__/\/usr\/bin\/wahay/g" | sed "s/__ICON__/wahay/" | sed "s/Internet/Network/"  > %{name}.desktop
 
@@ -92,7 +92,7 @@ export GOFLAGS="-tags=gtk_3_18,glib_2_66"
 %files
 %license COPYING LICENSE
 %doc DEVELOPER.md CONTRIBUTORS README.md
-#%{_mandir}/man1/wahay.*
+%{_mandir}/man1/wahay.*
 %{_bindir}/*
 %{_datadir}/applications/*.desktop
 %{_datadir}/icons/hicolor/*
